@@ -133,8 +133,6 @@ def run(file_path):
 
         random.shuffle(id_list)
 
-        # ペアの履歴を作る
-
     else:
         pass
 
@@ -142,7 +140,15 @@ def run(file_path):
     new_data = copy.deepcopy(prev_data)
     new_data.order_dict = dict()
     for i in range(0, len(id_list)):
+        # 席順のリストを新しいデータに反映
         new_data.order_dict[str(i)] = id_list[i]
+        # ペアの履歴をつくる
+        if i % 2 == 0 and i < len(id_list) - 1:
+            new_data.member_list[id_list[i]].buddy_history_list.append(id_list[i+1])
+        else:
+            new_data.member_list[id_list[i]].buddy_history_list.append(id_list[i-1])
+        # 席の履歴
+        new_data.member_list[id_list[i]].seat_history_list.append(i)
 
     # ファイルに保存
     new_data_dict = new_data.convert_to_dict()
@@ -202,3 +208,4 @@ def create_default_sekigae_data():
 # file.close()
 # data2 = SekigaeData('json/test.json')
 # print(json.dumps(data2.convert_to_dict(), ensure_ascii=False, indent=2, separators=(',', ': ')))
+
