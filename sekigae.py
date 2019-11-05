@@ -63,6 +63,7 @@ class SeatData:
 # 席替えのデータを扱うクラス
 class SekigaeData:
     def __init__(self, file_path=None):
+        self.class_name = ""     # 教室の名前
         self.member_list = None  # PersonalDataを格納
         self.seat_list = None    # SeatDataを格納
         self.order_dict = None   # 個人IDを席順に格納する配列
@@ -78,6 +79,7 @@ class SekigaeData:
         self.member_list = []
         self.seat_list = []
         self.order_dict = dict()
+        self.class_name = dic['class_name']
         for member_dic in dic['member_list']:
             member = PersonalData()
             member.load_from_dict(member_dic)
@@ -97,6 +99,8 @@ class SekigaeData:
 
     def convert_to_dict(self):
         dic = dict()
+
+        dic['class_name'] = self.class_name
 
         member_list = []
         for member in self.member_list:
@@ -121,6 +125,8 @@ def run(filename):
 # デフォルトの席替えデータを作成する
 def create_default_sekigae_data():
     data = SekigaeData()
+
+    data.class_name = "sparta"
 
     # メンバーリスト
     for i in range(0, 14):
@@ -152,16 +158,17 @@ def create_default_sekigae_data():
         data.seat_list.append(seat_data)
 
     # 席順データ
-    for member in data.member_list:
-        data.order_dict[member.id] = member.id
+    # for member in data.member_list:
+    #    data.order_dict[member.id] = member.id
+    # 席順データは最初は空
 
     return data
 
 
-data = create_default_sekigae_data()
-data_dic = data.convert_to_dict()
-file = open('json/test.json', 'w')
-json.dump(data_dic, fp=file, ensure_ascii=False, indent=2, separators=(',', ': '))
-file.close()
-data2 = SekigaeData('json/test.json')
-print(json.dumps(data2.convert_to_dict(), ensure_ascii=False, indent=2, separators=(',', ': ')))
+# data = create_default_sekigae_data()
+# data_dic = data.convert_to_dict()
+# file = open('json/test.json', 'w')
+# json.dump(data_dic, fp=file, ensure_ascii=False, indent=2, separators=(',', ': '))
+# file.close()
+# data2 = SekigaeData('json/test.json')
+# print(json.dumps(data2.convert_to_dict(), ensure_ascii=False, indent=2, separators=(',', ': ')))

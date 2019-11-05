@@ -1,9 +1,9 @@
 {
-  "class_name": "sparta",
+  "class_name": "sparta17",
   "member_list": [
     {
       "id": 0,
-      "name": "member00",
+      "name": "塚田崇博",
       "is_lefty": false,
       "forward_prio": 0,
       "buddy_history_list": [],
@@ -11,7 +11,7 @@
     },
     {
       "id": 1,
-      "name": "member01",
+      "name": "徳田貴一",
       "is_lefty": false,
       "forward_prio": 0,
       "buddy_history_list": [],
@@ -19,7 +19,7 @@
     },
     {
       "id": 2,
-      "name": "member02",
+      "name": "高橋通",
       "is_lefty": false,
       "forward_prio": 0,
       "buddy_history_list": [],
@@ -27,7 +27,7 @@
     },
     {
       "id": 3,
-      "name": "member03",
+      "name": "田中潤",
       "is_lefty": false,
       "forward_prio": 0,
       "buddy_history_list": [],
@@ -35,7 +35,7 @@
     },
     {
       "id": 4,
-      "name": "member04",
+      "name": "兼松智恵子",
       "is_lefty": false,
       "forward_prio": 0,
       "buddy_history_list": [],
@@ -43,7 +43,7 @@
     },
     {
       "id": 5,
-      "name": "member05",
+      "name": "熊谷航",
       "is_lefty": false,
       "forward_prio": 0,
       "buddy_history_list": [],
@@ -51,7 +51,7 @@
     },
     {
       "id": 6,
-      "name": "member06",
+      "name": "下川孝宣",
       "is_lefty": false,
       "forward_prio": 0,
       "buddy_history_list": [],
@@ -59,7 +59,7 @@
     },
     {
       "id": 7,
-      "name": "member07",
+      "name": "柴田雅幸",
       "is_lefty": false,
       "forward_prio": 0,
       "buddy_history_list": [],
@@ -67,7 +67,7 @@
     },
     {
       "id": 8,
-      "name": "member08",
+      "name": "中野英麿",
       "is_lefty": false,
       "forward_prio": 0,
       "buddy_history_list": [],
@@ -75,7 +75,7 @@
     },
     {
       "id": 9,
-      "name": "member09",
+      "name": "速水駿",
       "is_lefty": false,
       "forward_prio": 0,
       "buddy_history_list": [],
@@ -83,7 +83,7 @@
     },
     {
       "id": 10,
-      "name": "member10",
+      "name": "舞鶴翔",
       "is_lefty": false,
       "forward_prio": 0,
       "buddy_history_list": [],
@@ -91,7 +91,7 @@
     },
     {
       "id": 11,
-      "name": "member11",
+      "name": "望月千華子",
       "is_lefty": false,
       "forward_prio": 0,
       "buddy_history_list": [],
@@ -99,7 +99,7 @@
     },
     {
       "id": 12,
-      "name": "member12",
+      "name": "山田樹",
       "is_lefty": false,
       "forward_prio": 0,
       "buddy_history_list": [],
@@ -107,7 +107,7 @@
     },
     {
       "id": 13,
-      "name": "member13",
+      "name": "吉田力",
       "is_lefty": false,
       "forward_prio": 0,
       "buddy_history_list": [],
