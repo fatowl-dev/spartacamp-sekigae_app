@@ -1,0 +1,218 @@
+{
+  "member_list": [
+    {
+      "id": 0,
+      "name": "member00",
+      "is_lefty": false,
+      "forward_prio": 0,
+      "buddy_history_list": [],
+      "seat_history_list": []
+    },
+    {
+      "id": 1,
+      "name": "member01",
+      "is_lefty": false,
+      "forward_prio": 0,
+      "buddy_history_list": [],
+      "seat_history_list": []
+    },
+    {
+      "id": 2,
+      "name": "member02",
+      "is_lefty": false,
+      "forward_prio": 0,
+      "buddy_history_list": [],
+      "seat_history_list": []
+    },
+    {
+      "id": 3,
+      "name": "member03",
+      "is_lefty": false,
+      "forward_prio": 0,
+      "buddy_history_list": [],
+      "seat_history_list": []
+    },
+    {
+      "id": 4,
+      "name": "member04",
+      "is_lefty": false,
+      "forward_prio": 0,
+      "buddy_history_list": [],
+      "seat_history_list": []
+    },
+    {
+      "id": 5,
+      "name": "member05",
+      "is_lefty": false,
+      "forward_prio": 0,
+      "buddy_history_list": [],
+      "seat_history_list": []
+    },
+    {
+      "id": 6,
+      "name": "member06",
+      "is_lefty": false,
+      "forward_prio": 0,
+      "buddy_history_list": [],
+      "seat_history_list": []
+    },
+    {
+      "id": 7,
+      "name": "member07",
+      "is_lefty": false,
+      "forward_prio": 0,
+      "buddy_history_list": [],
+      "seat_history_list": []
+    },
+    {
+      "id": 8,
+      "name": "member08",
+      "is_lefty": false,
+      "forward_prio": 0,
+      "buddy_history_list": [],
+      "seat_history_list": []
+    },
+    {
+      "id": 9,
+      "name": "member09",
+      "is_lefty": false,
+      "forward_prio": 0,
+      "buddy_history_list": [],
+      "seat_history_list": []
+    },
+    {
+      "id": 10,
+      "name": "member10",
+      "is_lefty": false,
+      "forward_prio": 0,
+      "buddy_history_list": [],
+      "seat_history_list": []
+    },
+    {
+      "id": 11,
+      "name": "member11",
+      "is_lefty": false,
+      "forward_prio": 0,
+      "buddy_history_list": [],
+      "seat_history_list": []
+    },
+    {
+      "id": 12,
+      "name": "member12",
+      "is_lefty": false,
+      "forward_prio": 0,
+      "buddy_history_list": [],
+      "seat_history_list": []
+    },
+    {
+      "id": 13,
+      "name": "member13",
+      "is_lefty": false,
+      "forward_prio": 0,
+      "buddy_history_list": [],
+      "seat_history_list": []
+    }
+  ],
+  "seat_list": [
+    {
+      "index": 0,
+      "table_number": 0,
+      "lefty_flag": true,
+      "forward_flag": true
+    },
+    {
+      "index": 1,
+      "table_number": 0,
+      "lefty_flag": false,
+      "forward_flag": true
+    },
+    {
+      "index": 2,
+      "table_number": 0,
+      "lefty_flag": false,
+      "forward_flag": true
+    },
+    {
+      "index": 3,
+      "table_number": 0,
+      "lefty_flag": true,
+      "forward_flag": true
+    },
+    {
+      "index": 4,
+      "table_number": 1,
+      "lefty_flag": true,
+      "forward_flag": true
+    },
+    {
+      "index": 5,
+      "table_number": 1,
+      "lefty_flag": false,
+      "forward_flag": true
+    },
+    {
+      "index": 6,
+      "table_number": 1,
+      "lefty_flag": false,
+      "forward_flag": true
+    },
+    {
+      "index": 7,
+      "table_number": 1,
+      "lefty_flag": true,
+      "forward_flag": true
+    },
+    {
+      "index": 8,
+      "table_number": 2,
+      "lefty_flag": true,
+      "forward_flag": false
+    },
+    {
+      "index": 9,
+      "table_number": 2,
+      "lefty_flag": false,
+      "forward_flag": false
+    },
+    {
+      "index": 10,
+      "table_number": 2,
+      "lefty_flag": false,
+      "forward_flag": false
+    },
+    {
+      "index": 11,
+      "table_number": 2,
+      "lefty_flag": false,
+      "forward_flag": false
+    },
+    {
+      "index": 12,
+      "table_number": 2,
+      "lefty_flag": false,
+      "forward_flag": false
+    },
+    {
+      "index": 13,
+      "table_number": 2,
+      "lefty_flag": true,
+      "forward_flag": false
+    }
+  ],
+  "order_dict": {
+    "0": 0,
+    "1": 1,
+    "2": 2,
+    "3": 3,
+    "4": 4,
+    "5": 5,
+    "6": 6,
+    "7": 7,
+    "8": 8,
+    "9": 9,
+    "10": 10,
+    "11": 11,
+    "12": 12,
+    "13": 13
+  }
+}

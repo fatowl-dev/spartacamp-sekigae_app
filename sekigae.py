@@ -14,8 +14,17 @@ class PersonalData:
         self.buddy_history_list = []    # 過去隣に誰が座っていたかの履歴
         self.seat_history_list = []     # 過去に座ったシートの履歴
 
-    def load_from_dict(self):
-        pass
+    def load_from_dict(self, dic):
+        self.buddy_history_list = []
+        self.seat_history_list = []
+        self.id = dic['id']
+        self.name = dic['name']
+        self.is_lefty = dic['is_lefty']
+        self.forward_prio = dic['forward_prio']
+        for buddy in dic['buddy_history_list']:
+            self.buddy_history_list.append(buddy)
+        for seat in dic['seat_history_list']:
+            self.seat_history_list.append(seat)
 
     def convert_to_dict(self):
         dic = dict()
@@ -36,8 +45,11 @@ class SeatData:
         self.lefty_flag = False     # 左利きが座れるかどうか
         self.forward_flag = False   # 前方の席かどうか
 
-    def load_from_dict(self):
-        pass
+    def load_from_dict(self, dic):
+        self.index = dic['index']
+        self.table_number = dic['table_number']
+        self.lefty_flag = dic['lefty_flag']
+        self.forward_flag = dic['forward_flag']
 
     def convert_to_dict(self):
         dic = dict()
@@ -66,12 +78,22 @@ class SekigaeData:
         self.member_list = []
         self.seat_list = []
         self.order_dict = dict()
+        for member_dic in dic['member_list']:
+            member = PersonalData()
+            member.load_from_dict(member_dic)
+            self.member_list.append(member)
+        for seat_dic in dic['seat_list']:
+            seat = SeatData()
+            seat.load_from_dict(seat_dic)
+            self.seat_list.append(seat)
+
+        self.order_dict = dic['order_dict']
 
     def load_from_file(self, file_path):
         file = open(file_path, 'r')
-        json.load(file)
+        dic = json.load(file)
         file.close()
-        self.load_from_dict(json)
+        self.load_from_dict(dic)
 
     def convert_to_dict(self):
         dic = dict()
@@ -138,5 +160,8 @@ def create_default_sekigae_data():
 
 data = create_default_sekigae_data()
 data_dic = data.convert_to_dict()
-json_str = json.dumps(data_dic, ensure_ascii=False, indent=2, separators=(',', ': '))
-print(json_str)
+file = open('json/test.json', 'w')
+json.dump(data_dic, fp=file, ensure_ascii=False, indent=2, separators=(',', ': '))
+file.close()
+data2 = SekigaeData('json/test.json')
+print(json.dumps(data2.convert_to_dict(), ensure_ascii=False, indent=2, separators=(',', ': ')))
