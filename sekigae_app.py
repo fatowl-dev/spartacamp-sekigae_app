@@ -14,7 +14,7 @@ import os
 
 # 使い方を表示する
 def print_usage():
-    print("使い方: python3 app.py <file>")
+    print("使い方: python3 sekigae_app.py <file>")
     print("       - <file> ... 前回の席替え結果ファイルを指定。")
 
 
