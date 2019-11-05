@@ -40,6 +40,14 @@ class PersonalData:
         return dic
 
 
+    def buddy_in_history(self, buddy_id):
+        for hist in self.buddy_history_list:
+            if buddy_id == hist:
+                return True
+
+        return False
+
+
 # 席のデータを扱うクラス
 class SeatData:
     def __init__(self):
@@ -119,22 +127,65 @@ class SekigaeData:
 
         return dic
 
+    def get_member_by_id(self, member_id:int):
+        for member in self.member_list:
+            if member.id == member_id:
+                return member
+        return None
+
+    def clear_buddy_history(self):
+        for member in self.member_list:
+            member.buddy_history_list = []
+
+
+def create_pair_list(data: SekigaeData):
+    id_list = []
+    for member in data.member_list:
+        id_list.append(member.id)
+
+    pair_list = []
+    while len(id_list) > 1:
+        random.shuffle(id_list)
+        first = id_list[0]
+        id_list.remove(first)
+        second = -1
+        for member_id in id_list:
+            if not data.get_member_by_id(first).buddy_in_history(member_id):
+                second = member_id
+                id_list.remove(second)
+                break
+        if second == -1:
+            # 相手が見つからなかったときは履歴をクリアしてやり直し
+            data.clear_buddy_history()
+            return create_pair_list(data)
+
+        pair_list.append((first, second))
+
+    return pair_list
+
 
 # file_path...前回の席替え結果ファイル
 # return: 席替え後のSekigaeData
 def run(file_path):
     prev_data = SekigaeData(file_path)
     # 席順の辞書がカラならランダムに並び替える
+    id_list = []
     if len(prev_data.order_dict) == 0:
         # メンバーIDの配列を作る
-        id_list = []
         for member in prev_data.member_list:
             id_list.append(member.id)
 
         random.shuffle(id_list)
 
     else:
-        pass
+        # 履歴に被らないようにペアを作成
+        pair_list = create_pair_list(prev_data)
+        # ペアをシャッフル
+        random.shuffle(pair_list)
+        # リストに入れる
+        for pair in pair_list:
+            id_list.append(pair[0])
+            id_list.append(pair[1])
 
     # 新しい席替えデータを作成
     new_data = copy.deepcopy(prev_data)
@@ -144,9 +195,9 @@ def run(file_path):
         new_data.order_dict[str(i)] = id_list[i]
         # ペアの履歴をつくる
         if i % 2 == 0 and i < len(id_list) - 1:
-            new_data.member_list[id_list[i]].buddy_history_list.append(id_list[i+1])
+            new_data.get_member_by_id(id_list[i]).buddy_history_list.append(id_list[i+1])
         else:
-            new_data.member_list[id_list[i]].buddy_history_list.append(id_list[i-1])
+            new_data.get_member_by_id(id_list[i]).buddy_history_list.append(id_list[i-1])
         # 席の履歴
         new_data.member_list[id_list[i]].seat_history_list.append(i)
 
