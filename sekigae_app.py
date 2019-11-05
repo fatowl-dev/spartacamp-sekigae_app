@@ -29,7 +29,7 @@ if __name__ == '__main__':
 
     file_name = sys.argv[1]
 
-    # 第一引数のファイルが存在しているか確認
+    # 第一引数のファイルが存在￿しているか確認
     if not os.path.isfile(file_name):
         print('エラー: 指定されたファイルがありません。')
         print_usage()
