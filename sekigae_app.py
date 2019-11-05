@@ -5,7 +5,7 @@
  Pythonのバージョン: 3.7
 
  コマンドラインから以下のように実行
- $ python3 app <file>
+ $ python3 sekigae_app.py <file>
  - <file>に前回の席替え結果ファイル(JSON)を指定
 """
 import sys
