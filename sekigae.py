@@ -201,6 +201,11 @@ def run(file_path):
         # 席の履歴
         new_data.member_list[id_list[i]].seat_history_list.append(i)
 
+    # 表示
+    for i in range(0, len(new_data.order_dict)):
+        name = new_data.get_member_by_id(new_data.order_dict[str(i)]).name
+        print(f'{i+1:02d}: {name}')
+
     # ファイルに保存
     new_data_dict = new_data.convert_to_dict()
     new_file_path = datetime.datetime.now().strftime('json/' + new_data.class_name + '_%Y%m%d%H%M%S.json')
