@@ -10,6 +10,7 @@
 """
 import sys
 import os
+import sekigae
 
 
 # 使い方を表示する
@@ -35,6 +36,6 @@ if __name__ == '__main__':
         print_usage()
         exit(1)
 
-    # sekigae.run(file_name)
+    sekigae.run(file_name)
 
 

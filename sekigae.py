@@ -2,6 +2,9 @@
 席替えアプリの実装
 """
 import json
+import random
+import copy
+import datetime
 
 
 # 個人のデータを扱うクラス
@@ -117,9 +120,36 @@ class SekigaeData:
         return dic
 
 
-# filename...前回の席替え結果ファイル
-def run(filename):
-    pass
+# file_path...前回の席替え結果ファイル
+# return: 席替え後のSekigaeData
+def run(file_path):
+    prev_data = SekigaeData(file_path)
+    # 席順の辞書がカラならランダムに並び替える
+    if len(prev_data.order_dict) == 0:
+        # メンバーIDの配列を作る
+        id_list = []
+        for member in prev_data.member_list:
+            id_list.append(member.id)
+
+        random.shuffle(id_list)
+
+        # ペアの履歴を作る
+
+    else:
+        pass
+
+    # 新しい席替えデータを作成
+    new_data = copy.deepcopy(prev_data)
+    new_data.order_dict = dict()
+    for i in range(0, len(id_list)):
+        new_data.order_dict[str(i)] = id_list[i]
+
+    # ファイルに保存
+    new_data_dict = new_data.convert_to_dict()
+    new_file_path = datetime.datetime.now().strftime('json/' + new_data.class_name + '_%Y%m%d%H%M%S.json')
+    file = open(new_file_path, 'w')
+    json.dump(new_data_dict, fp=file, ensure_ascii=False, indent=2, separators=(',', ': '))
+    file.close()
 
 
 # デフォルトの席替えデータを作成する
