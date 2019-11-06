@@ -12,7 +12,7 @@
     {
       "id": 1,
       "name": "徳田貴一",
-      "is_lefty": false,
+      "is_lefty": true,
       "forward_prio": 0,
       "buddy_history_list": [],
       "seat_history_list": []

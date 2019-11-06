@@ -39,7 +39,6 @@ class PersonalData:
         dic['seat_history_list'] = self.seat_history_list
         return dic
 
-
     def buddy_in_history(self, buddy_id):
         for hist in self.buddy_history_list:
             if buddy_id == hist:
@@ -137,11 +136,17 @@ class SekigaeData:
         for member in self.member_list:
             member.buddy_history_list = []
 
+    def get_lefty_seat_list(self):
+        seat_list = [seat for seat in self.seat_list if seat.lefty_flag]
+        return seat_list
+
+    def get_lefty_member_list(self):
+        member_list = [member for member in self.member_list if member.is_lefty]
+        return member_list
+
 
 def create_pair_list(data: SekigaeData):
-    id_list = []
-    for member in data.member_list:
-        id_list.append(member.id)
+    id_list = [member.id for member in data.member_list]
 
     pair_list = []
     while len(id_list) > 1:
@@ -161,7 +166,44 @@ def create_pair_list(data: SekigaeData):
 
         pair_list.append((first, second))
 
+    if len(id_list) == 1:
+        pair_list.append((id_list[0], -1))
+
     return pair_list
+
+
+def first_shuffle(data: SekigaeData):
+    # メンバーIDの配列を作る
+    # for member in prev_data.member_list:
+    #     id_list.append(member.id)
+    # random.shuffle(id_list)
+    # 左利きの人の席を決める
+    lefty_seat_list = data.get_lefty_seat_list()
+    lefty_member_list = data.get_lefty_member_list()
+    member_list = copy.copy(data.member_list)   # 未決定メンバーリスト
+    seat_list = copy.copy(data.seat_list)       # 未決定席リスト
+    random.shuffle(lefty_seat_list)
+    random.shuffle(lefty_member_list)
+    order = dict()                      # 席替え結果の辞書
+    for member in lefty_member_list:
+        if len(lefty_seat_list) == 0:
+            break
+        order[str(lefty_seat_list[0].index)] = member.id
+        seat_list.remove(lefty_seat_list[0])    # 決定した席を削除
+        lefty_seat_list.pop(0)                  # 決定した席を左可リストから削除
+        member_list.remove(member)  # 決定したメンバーを削除
+
+    # 残ったメンバーと席をランダム配置
+    random.shuffle(member_list)
+    for i in range(len(member_list)):
+        order[str(seat_list[i].index)] = member_list[i].id
+
+    # 辞書をリストに変換
+    id_list = []
+    for i in range(len(order)):
+        id_list.append(order[str(i)])
+
+    return id_list
 
 
 # file_path...前回の席替え結果ファイル
@@ -169,14 +211,9 @@ def create_pair_list(data: SekigaeData):
 def run(file_path):
     prev_data = SekigaeData(file_path)
     # 席順の辞書がカラならランダムに並び替える
-    id_list = []
+    id_list = None
     if len(prev_data.order_dict) == 0:
-        # メンバーIDの配列を作る
-        for member in prev_data.member_list:
-            id_list.append(member.id)
-
-        random.shuffle(id_list)
-
+        id_list = first_shuffle(prev_data)
     else:
         # 履歴に被らないようにペアを作成
         pair_list = create_pair_list(prev_data)
@@ -185,7 +222,8 @@ def run(file_path):
         # リストに入れる
         for pair in pair_list:
             id_list.append(pair[0])
-            id_list.append(pair[1])
+            if pair[1] != -1:
+                id_list.append(pair[1])
 
     # 新しい席替えデータを作成
     new_data = copy.deepcopy(prev_data)
@@ -257,11 +295,15 @@ def create_default_sekigae_data():
     return data
 
 
-# data = create_default_sekigae_data()
-# data_dic = data.convert_to_dict()
-# file = open('json/test.json', 'w')
-# json.dump(data_dic, fp=file, ensure_ascii=False, indent=2, separators=(',', ': '))
-# file.close()
-# data2 = SekigaeData('json/test.json')
-# print(json.dumps(data2.convert_to_dict(), ensure_ascii=False, indent=2, separators=(',', ': ')))
-
+if __name__ == '__main__':
+    # data = create_default_sekigae_data()
+    # data_dic = data.convert_to_dict()
+    # file = open('json/test.json', 'w')
+    # json.dump(data_dic, fp=file, ensure_ascii=False, indent=2, separators=(',', ': '))
+    # file.close()
+    # data2 = SekigaeData('json/test.json')
+    # print(json.dumps(data2.convert_to_dict(), ensure_ascii=False, indent=2, separators=(',', ': ')))
+    data = create_default_sekigae_data()
+    lefty_seat_list = data.get_lefty_seat_list()
+    for seat in lefty_seat_list:
+        print(seat.index)
