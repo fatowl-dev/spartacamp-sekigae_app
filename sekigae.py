@@ -132,6 +132,12 @@ class SekigaeData:
                 return member
         return None
 
+    def get_seat_by_index(self, index):
+        for seat in self.seat_list:
+            if seat.index == index:
+                return seat
+        return None
+
     def clear_buddy_history(self):
         for member in self.member_list:
             member.buddy_history_list = []
@@ -172,12 +178,9 @@ def create_pair_list(data: SekigaeData):
     return pair_list
 
 
-def first_shuffle(data: SekigaeData):
-    # メンバーIDの配列を作る
-    # for member in prev_data.member_list:
-    #     id_list.append(member.id)
-    # random.shuffle(id_list)
-    # 左利きの人の席を決める
+# 最初のシャッフル
+def first_seat_shuffle(data: SekigaeData):
+    # 先に左利きの人の席を決める
     lefty_seat_list = data.get_lefty_seat_list()
     lefty_member_list = data.get_lefty_member_list()
     member_list = copy.copy(data.member_list)   # 未決定メンバーリスト
@@ -206,6 +209,81 @@ def first_shuffle(data: SekigaeData):
     return id_list
 
 
+# 二回目以降のシャッフル
+def seat_shuffle(data: SekigaeData):
+    order = dict()
+    # 履歴に被らないようにペアを作成
+    pair_list = create_pair_list(data)
+    # 左利きがいるペアを抜き出す
+    lefty_list = [p for p in pair_list if data.get_member_by_id(p[0]).is_lefty \
+                  or (p[1] != -1 and data.get_member_by_id(p[1]).is_lefty)]
+    # 未決定リスト
+    seat_list = copy.copy(data.seat_list)
+    # 左利き対応席リスト
+    lefty_seat_list = data.get_lefty_seat_list()
+    # 左利きがいるペアを配置
+    random.shuffle(lefty_seat_list)
+    for pair in lefty_list:
+        if len(lefty_seat_list) == 0:
+            break
+        seat = lefty_seat_list.pop(0)
+        seat_list.remove(seat)
+        mem = data.get_member_by_id(pair[0])
+        seat1_index = None
+        if mem.is_lefty:
+            order[str(seat.index)] = mem.id
+            if seat.index % 2 == 0:
+                seat1_index = seat.index + 1
+            else:
+                seat1_index = seat.index - 1
+
+            mem1 = data.get_member_by_id(pair[1])
+            seat1 = data.get_seat_by_index(seat1_index)
+            order[str(seat1_index)] = mem1.id
+            seat_list.remove(seat1)
+            pair_list.remove(pair)
+        else:
+            mem1 = data.get_member_by_id(pair[1])
+            order[str(seat.index)] = mem1.id
+            if seat.index % 2 == 0:
+                seat1_index = seat.index + 1
+            else:
+                seat1_index = seat.index - 1
+            seat1 = data.get_seat_by_index(seat1_index)
+            order[str(seat1_index)] = mem.id
+            seat_list.remove(seat1)
+            pair_list.remove(pair)
+
+    # 残ったペアを残った席に配置
+    random.shuffle(pair_list)
+    for pair in pair_list:
+        seat0 = seat_list.pop(0)
+        seat1_index = None
+        if seat0.index % 2 == 0:
+            seat1_index = seat0.index + 1
+        else:
+            seat1_index = seat0.index - 1
+        seat1 = data.get_seat_by_index(seat1_index)
+        seat_list.remove(seat1)
+        order[str(seat0.index)] = pair[0]
+        order[str(seat1.index)] = pair[1]
+
+    # 辞書をリストに変換
+    id_list = []
+    for i in range(len(order)):
+        id_list.append(order[str(i)])
+
+    # # ペアをシャッフル
+    # random.shuffle(pair_list)
+    # # リストに入れる
+    # for pair in pair_list:
+    #     id_list.append(pair[0])
+    #     if pair[1] != -1:
+    #         id_list.append(pair[1])
+    #
+    return id_list
+
+
 # file_path...前回の席替え結果ファイル
 # return: 席替え後のSekigaeData
 def run(file_path):
@@ -213,17 +291,9 @@ def run(file_path):
     # 席順の辞書がカラならランダムに並び替える
     id_list = None
     if len(prev_data.order_dict) == 0:
-        id_list = first_shuffle(prev_data)
+        id_list = first_seat_shuffle(prev_data)
     else:
-        # 履歴に被らないようにペアを作成
-        pair_list = create_pair_list(prev_data)
-        # ペアをシャッフル
-        random.shuffle(pair_list)
-        # リストに入れる
-        for pair in pair_list:
-            id_list.append(pair[0])
-            if pair[1] != -1:
-                id_list.append(pair[1])
+        id_list = seat_shuffle(prev_data)
 
     # 新しい席替えデータを作成
     new_data = copy.deepcopy(prev_data)
@@ -295,7 +365,7 @@ def create_default_sekigae_data():
     return data
 
 
-if __name__ == '__main__':
+def __main():
     # data = create_default_sekigae_data()
     # data_dic = data.convert_to_dict()
     # file = open('json/test.json', 'w')
@@ -307,3 +377,7 @@ if __name__ == '__main__':
     lefty_seat_list = data.get_lefty_seat_list()
     for seat in lefty_seat_list:
         print(seat.index)
+
+
+if __name__ == '__main__':
+    __main()
