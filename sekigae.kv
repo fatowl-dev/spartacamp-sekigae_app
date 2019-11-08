@@ -1,0 +1,189 @@
+#:import SekigaeWidget sekigae_gui.SekigaeWidget
+
+SekigaeWidget:
+<SekigaeWidget>:
+    size: root.size
+
+    canvas.before:
+        Color:
+            rgb: 0.2, 0.2,0.2
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+        Color:
+            rgba: 0.5,0.5,0.5,1
+        RoundedRectangle:
+            pos: self.width * 0.15, self.height * 0.4
+            size: self.width * 0.15, self.height * 0.4
+            radius: [30, ]
+        RoundedRectangle:
+            pos: self.width * 0.7, self.height * 0.4
+            size: self.width * 0.15, self.height * 0.4
+            radius: [30, ]
+        RoundedRectangle:
+            pos: self.width * 0.25, self.height * 0.2
+            size: self.width * 0.5, self.height * 0.15
+            radius: [30, ]
+        Color:
+            rgb: 0.8, 0.8, 0.7
+        Ellipse:
+            pos: self.width * 0.03, self.height * 0.65
+            size: self.width * 0.1, self.width * 0.1
+        Ellipse:
+            pos: self.width * 0.03, self.height * 0.45
+            size: self.width * 0.1, self.width * 0.1
+        Ellipse:
+            pos: self.width * 0.32, self.height * 0.65
+            size: self.width * 0.1, self.width * 0.1
+        Ellipse:
+            pos: self.width * 0.32, self.height * 0.45
+            size: self.width * 0.1, self.width * 0.1
+        Ellipse:
+            pos: self.width * 0.57, self.height * 0.65
+            size: self.width * 0.1, self.width * 0.1
+        Ellipse:
+            pos: self.width * 0.57, self.height * 0.45
+            size: self.width * 0.1, self.width * 0.1
+        Ellipse:
+            pos: self.width * 0.87, self.height * 0.65
+            size: self.width * 0.1, self.width * 0.1
+        Ellipse:
+            pos: self.width * 0.87, self.height * 0.45
+            size: self.width * 0.1, self.width * 0.1
+        Ellipse:
+            pos: self.width * 0.12, self.height * 0.23
+            size: self.width * 0.1, self.width * 0.1
+        Ellipse:
+            pos: self.width * 0.78, self.height * 0.23
+            size: self.width * 0.1, self.width * 0.1
+        Ellipse:
+            pos: self.width * 0.25, self.height * 0.08
+            size: self.width * 0.1, self.width * 0.1
+        Ellipse:
+            pos: self.width * 0.38, self.height * 0.08
+            size: self.width * 0.1, self.width * 0.1
+        Ellipse:
+            pos: self.width * 0.51, self.height * 0.08
+            size: self.width * 0.1, self.width * 0.1
+        Ellipse:
+            pos: self.width * 0.64, self.height * 0.08
+            size: self.width * 0.1, self.width * 0.1
+
+    Widget:
+        Label:
+            id: FilePathLabel
+            size: root.width * 0.7, root.height * 0.05
+            pos: root.width * 0.01, root.height * 0.87
+            text_size: root.width * 0.7, root.height * 0.05
+            color: 0.1,0.1,0.1,1
+            halign: 'left'
+            text: root.file_path
+            font_size: root.height / 30
+            canvas.before:
+                Color:
+                    rgb: 0.9,0.9,0.9
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+    Widget:
+        Button:
+            id: ShuffleButton
+            text: 'Shuffle!'
+            font_size: root.height / 20
+            size: root.width * 0.2, root.height * 0.1
+            pos: root.width * 0.75, root.height * 0.89
+
+    Widget:
+        Button:
+            id: SelectFileButton
+            text: 'Select file'
+            font_size: root.height / 30
+            size: root.width * 0.15, root.height * 0.05
+            pos: root.width * 0.01, root.height * 0.92
+            on_press: root.select_btn_clicked()
+
+    Label:
+        id: Seat00
+        color: 0.9,0,0,1
+        text: root.names[0]
+        font_size: self.height / 40
+        pos: self.width * -0.42, self.height * 0.2
+    Label:
+        id: Seat01
+        color: 0.9,0,0,1
+        text: root.names[1]
+        font_size: self.height / 40
+        pos: self.width * -0.42, self.height * 0
+    Label:
+        id: Seat02
+        color: 0.9,0,0,1
+        text: root.names[2]
+        font_size: self.height / 40
+        pos: self.width * -0.13, self.height * 0.2
+    Label:
+        id: Seat03
+        color: 0.9,0,0,1
+        text: root.names[3]
+        font_size: self.height / 40
+        pos: self.width * -0.13, self.height * 0
+    Label:
+        id: Seat04
+        color: 0.9,0,0,1
+        text: root.names[4]
+        font_size: self.height / 40
+        pos: self.width * 0.12, self.height * 0.2
+    Label:
+        id: Seat05
+        color: 0.9,0,0,1
+        text: root.names[5]
+        font_size: self.height / 40
+        pos: self.width * 0.12, self.height * 0
+    Label:
+        id: Seat06
+        color: 0.9,0,0,1
+        text: root.names[6]
+        font_size: self.height / 40
+        pos: self.width * 0.42, self.height * 0.2
+    Label:
+        id: Seat07
+        color: 0.9,0,0,1
+        text: root.names[7]
+        font_size: self.height / 40
+        pos: self.width * 0.42, self.height * 0
+    Label:
+        id: Seat08
+        color: 0.9,0,0,1
+        text: root.names[8]
+        font_size: self.height / 40
+        pos: self.width * -0.33, self.height * -0.22
+    Label:
+        id: Seat09
+        color: 0.9,0,0,1
+        text: root.names[9]
+        font_size: self.height / 40
+        pos: self.width * -0.2, self.height * -0.37
+    Label:
+        id: Seat10
+        color: 0.9,0,0,1
+        text: root.names[10]
+        font_size: self.height / 40
+        pos: self.width * -0.07, self.height * -0.37
+    Label:
+        id: Seat11
+        color: 0.9,0,0,1
+        text: root.names[11]
+        font_size: self.height / 40
+        pos: self.width * 0.06, self.height * -0.37
+    Label:
+        id: Seat12
+        color: 0.9,0,0,1
+        text: root.names[12]
+        font_size: self.height / 40
+        pos: self.width * 0.19, self.height * -0.37
+    Label:
+        id: Seat13
+        color: 0.9,0,0,1
+        text: root.names[13]
+        font_size: self.height / 40
+        pos: self.width * 0.33, self.height * -0.22
