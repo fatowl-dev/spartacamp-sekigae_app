@@ -71,37 +71,13 @@ SekigaeWidget:
             size: self.width * 0.1, self.width * 0.1
 
     Widget:
-        Label:
-            id: FilePathLabel
-            size: root.width * 0.7, root.height * 0.05
-            pos: root.width * 0.01, root.height * 0.87
-            text_size: root.width * 0.7, root.height * 0.05
-            color: 0.1,0.1,0.1,1
-            halign: 'left'
-            text: root.file_path
-            font_size: root.height / 30
-            canvas.before:
-                Color:
-                    rgb: 0.9,0.9,0.9
-                Rectangle:
-                    pos: self.pos
-                    size: self.size
-    Widget:
         Button:
             id: ShuffleButton
             text: 'Shuffle!'
             font_size: root.height / 20
             size: root.width * 0.2, root.height * 0.1
             pos: root.width * 0.75, root.height * 0.89
-
-    Widget:
-        Button:
-            id: SelectFileButton
-            text: 'Select file'
-            font_size: root.height / 30
-            size: root.width * 0.15, root.height * 0.05
-            pos: root.width * 0.01, root.height * 0.92
-            on_press: root.select_btn_clicked()
+            on_release: root.on_shuffle_btn_clicked()
 
     Label:
         id: Seat00
@@ -187,3 +163,23 @@ SekigaeWidget:
         text: root.names[13]
         font_size: self.height / 40
         pos: self.width * 0.33, self.height * -0.22
+
+    Widget:
+        Label:
+            size: root.width * 0.7, root.height * 0.05
+            text_size: self.size
+            color: 1,1,1,1
+            valign: 'bottom'
+            halign: 'center'
+            text: 'Select File'
+            font_size: root.height / 40
+            pos: root.width * 0, root.height * 0.95
+
+    Widget:
+        Spinner:
+            size: root.width * 0.7, root.height * 0.05
+            pos: root.width * 0, root.height * 0.90
+            text: root.file_path
+            values: root.file_list
+            on_text: root.on_select_file(self.text)
+
