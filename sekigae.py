@@ -1,10 +1,9 @@
 """
 席替えアプリの実装
 """
+import copy
 import json
 import random
-import copy
-import datetime
 
 
 # 個人のデータを扱うクラス
@@ -313,13 +312,6 @@ def execute(file_path):
     for i in range(0, len(new_data.order_dict)):
         name = new_data.get_member_by_id(new_data.order_dict[str(i)]).name
         print(f'{i+1:02d}: {name}')
-
-    # ファイルに保存
-    new_data_dict = new_data.convert_to_dict()
-    new_file_path = datetime.datetime.now().strftime('json/' + new_data.class_name + '_%Y%m%d%H%M%S.json')
-    file = open(new_file_path, 'w')
-    json.dump(new_data_dict, fp=file, ensure_ascii=False, indent=2, separators=(',', ': '))
-    file.close()
 
     return new_data
 
