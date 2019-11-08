@@ -42,6 +42,9 @@ class SekigaeWidget(FloatLayout):
 
     # シャッフルボタンを押したときの処理
     def on_shuffle_btn_clicked(self):
+        if self.file_path == 'None':
+            return
+
         data = sekigae.SekigaeData(self.file_path)
         new_data = sekigae.execute(data)
         self.update_seat_order(new_data)
