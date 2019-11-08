@@ -286,7 +286,7 @@ def seat_shuffle(data: SekigaeData):
 
 # file_path...前回の席替え結果ファイル
 # return: 席替え後のSekigaeData
-def run(file_path):
+def execute(file_path):
     prev_data = SekigaeData(file_path)
     # 席順の辞書がカラならランダムに並び替える
     id_list = None
@@ -320,6 +320,8 @@ def run(file_path):
     file = open(new_file_path, 'w')
     json.dump(new_data_dict, fp=file, ensure_ascii=False, indent=2, separators=(',', ': '))
     file.close()
+
+    return new_data
 
 
 # デフォルトの席替えデータを作成する
