@@ -283,10 +283,9 @@ def seat_shuffle(data: SekigaeData):
     return id_list
 
 
-# file_path...前回の席替え結果ファイル
+# prev_data...前の席替えデータ
 # return: 席替え後のSekigaeData
-def execute(file_path):
-    prev_data = SekigaeData(file_path)
+def execute(prev_data: SekigaeData):
     # 席順の辞書がカラならランダムに並び替える
     id_list = None
     if len(prev_data.order_dict) == 0:

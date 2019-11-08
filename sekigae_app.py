@@ -8,8 +8,11 @@
  $ python3 sekigae_app.py <file>
  - <file>に前回の席替え結果ファイル(JSON)を指定
 """
-import sys
+import datetime
+import json
 import os
+import sys
+
 import sekigae
 
 
@@ -36,6 +39,15 @@ if __name__ == '__main__':
         print_usage()
         exit(1)
 
-    sekigae.execute(file_name)
+    # データ読み込み
+    prev_data = sekigae.SekigaeData(file_name)
 
+    # 席替え実行
+    new_data = sekigae.execute(file_name)
 
+    # ファイルに保存
+    new_data_dict = new_data.convert_to_dict()
+    new_file_path = datetime.datetime.now().strftime('json/' + new_data.class_name + '_%Y%m%d%H%M%S.json')
+    file = open(new_file_path, 'w')
+    json.dump(new_data_dict, fp=file, ensure_ascii=False, indent=2, separators=(',', ': '))
+    file.close()
