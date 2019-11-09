@@ -1,0 +1,247 @@
+{
+  "class_name": "sparta17",
+  "member_list": [
+    {
+      "id": 0,
+      "name": "塚田崇博",
+      "is_lefty": false,
+      "forward_prio": 0,
+      "buddy_history_list": [
+        4
+      ],
+      "seat_history_list": []
+    },
+    {
+      "id": 1,
+      "name": "徳田貴一",
+      "is_lefty": true,
+      "forward_prio": 0,
+      "buddy_history_list": [
+        6
+      ],
+      "seat_history_list": []
+    },
+    {
+      "id": 2,
+      "name": "高橋通",
+      "is_lefty": false,
+      "forward_prio": 0,
+      "buddy_history_list": [
+        5
+      ],
+      "seat_history_list": []
+    },
+    {
+      "id": 3,
+      "name": "田中潤",
+      "is_lefty": false,
+      "forward_prio": 0,
+      "buddy_history_list": [
+        7
+      ],
+      "seat_history_list": []
+    },
+    {
+      "id": 4,
+      "name": "兼松智恵子",
+      "is_lefty": false,
+      "forward_prio": 0,
+      "buddy_history_list": [
+        1
+      ],
+      "seat_history_list": []
+    },
+    {
+      "id": 5,
+      "name": "熊谷航",
+      "is_lefty": false,
+      "forward_prio": 0,
+      "buddy_history_list": [
+        2
+      ],
+      "seat_history_list": []
+    },
+    {
+      "id": 6,
+      "name": "下川孝宣",
+      "is_lefty": false,
+      "forward_prio": 0,
+      "buddy_history_list": [
+        1
+      ],
+      "seat_history_list": []
+    },
+    {
+      "id": 7,
+      "name": "柴田雅幸",
+      "is_lefty": false,
+      "forward_prio": 0,
+      "buddy_history_list": [
+        3
+      ],
+      "seat_history_list": []
+    },
+    {
+      "id": 8,
+      "name": "中野英麿",
+      "is_lefty": false,
+      "forward_prio": 0,
+      "buddy_history_list": [
+        9
+      ],
+      "seat_history_list": []
+    },
+    {
+      "id": 9,
+      "name": "速水駿",
+      "is_lefty": false,
+      "forward_prio": 0,
+      "buddy_history_list": [
+        8
+      ],
+      "seat_history_list": []
+    },
+    {
+      "id": 10,
+      "name": "舞鶴翔",
+      "is_lefty": false,
+      "forward_prio": 0,
+      "buddy_history_list": [
+        13
+      ],
+      "seat_history_list": []
+    },
+    {
+      "id": 11,
+      "name": "望月千華子",
+      "is_lefty": false,
+      "forward_prio": 0,
+      "buddy_history_list": [
+        12
+      ],
+      "seat_history_list": []
+    },
+    {
+      "id": 12,
+      "name": "山田樹",
+      "is_lefty": false,
+      "forward_prio": 0,
+      "buddy_history_list": [
+        11
+      ],
+      "seat_history_list": []
+    },
+    {
+      "id": 13,
+      "name": "吉田力",
+      "is_lefty": false,
+      "forward_prio": 0,
+      "buddy_history_list": [
+        10
+      ],
+      "seat_history_list": []
+    }
+  ],
+  "seat_list": [
+    {
+      "index": 0,
+      "table_number": 0,
+      "lefty_flag": true,
+      "forward_flag": true
+    },
+    {
+      "index": 1,
+      "table_number": 0,
+      "lefty_flag": false,
+      "forward_flag": true
+    },
+    {
+      "index": 2,
+      "table_number": 0,
+      "lefty_flag": false,
+      "forward_flag": true
+    },
+    {
+      "index": 3,
+      "table_number": 0,
+      "lefty_flag": true,
+      "forward_flag": true
+    },
+    {
+      "index": 4,
+      "table_number": 1,
+      "lefty_flag": true,
+      "forward_flag": true
+    },
+    {
+      "index": 5,
+      "table_number": 1,
+      "lefty_flag": false,
+      "forward_flag": true
+    },
+    {
+      "index": 6,
+      "table_number": 1,
+      "lefty_flag": false,
+      "forward_flag": true
+    },
+    {
+      "index": 7,
+      "table_number": 1,
+      "lefty_flag": true,
+      "forward_flag": true
+    },
+    {
+      "index": 8,
+      "table_number": 2,
+      "lefty_flag": true,
+      "forward_flag": false
+    },
+    {
+      "index": 9,
+      "table_number": 2,
+      "lefty_flag": false,
+      "forward_flag": false
+    },
+    {
+      "index": 10,
+      "table_number": 2,
+      "lefty_flag": false,
+      "forward_flag": false
+    },
+    {
+      "index": 11,
+      "table_number": 2,
+      "lefty_flag": false,
+      "forward_flag": false
+    },
+    {
+      "index": 12,
+      "table_number": 2,
+      "lefty_flag": false,
+      "forward_flag": false
+    },
+    {
+      "index": 13,
+      "table_number": 2,
+      "lefty_flag": true,
+      "forward_flag": false
+    }
+  ],
+  "order_dict": {
+    "0": 5,
+    "1": 2,
+    "2": 11,
+    "3": 12,
+    "4": 10,
+    "5": 13,
+    "6": 3,
+    "7": 7,
+    "8": 0,
+    "9": 4,
+    "10": 1,
+    "11": 6,
+    "12": 9,
+    "13": 8
+  }
+}
