@@ -1,0 +1,289 @@
+{
+  "class_name": "sparta17",
+  "member_list": [
+    {
+      "id": 0,
+      "name": "塚田崇博",
+      "is_lefty": false,
+      "forward_prio": 0,
+      "buddy_history_list": [
+        4,
+        11
+      ],
+      "seat_history_list": [
+        10
+      ]
+    },
+    {
+      "id": 1,
+      "name": "徳田貴一",
+      "is_lefty": true,
+      "forward_prio": 0,
+      "buddy_history_list": [
+        6,
+        12
+      ],
+      "seat_history_list": [
+        0
+      ]
+    },
+    {
+      "id": 2,
+      "name": "高橋通",
+      "is_lefty": false,
+      "forward_prio": 0,
+      "buddy_history_list": [
+        5,
+        9
+      ],
+      "seat_history_list": [
+        5
+      ]
+    },
+    {
+      "id": 3,
+      "name": "田中潤",
+      "is_lefty": false,
+      "forward_prio": 0,
+      "buddy_history_list": [
+        7,
+        5
+      ],
+      "seat_history_list": [
+        9
+      ]
+    },
+    {
+      "id": 4,
+      "name": "兼松智恵子",
+      "is_lefty": false,
+      "forward_prio": 0,
+      "buddy_history_list": [
+        1,
+        10
+      ],
+      "seat_history_list": [
+        6
+      ]
+    },
+    {
+      "id": 5,
+      "name": "熊谷航",
+      "is_lefty": false,
+      "forward_prio": 0,
+      "buddy_history_list": [
+        2,
+        3
+      ],
+      "seat_history_list": [
+        8
+      ]
+    },
+    {
+      "id": 6,
+      "name": "下川孝宣",
+      "is_lefty": false,
+      "forward_prio": 0,
+      "buddy_history_list": [
+        1,
+        13
+      ],
+      "seat_history_list": [
+        3
+      ]
+    },
+    {
+      "id": 7,
+      "name": "柴田雅幸",
+      "is_lefty": false,
+      "forward_prio": 0,
+      "buddy_history_list": [
+        3,
+        8
+      ],
+      "seat_history_list": [
+        12
+      ]
+    },
+    {
+      "id": 8,
+      "name": "中野英麿",
+      "is_lefty": false,
+      "forward_prio": 0,
+      "buddy_history_list": [
+        9,
+        7
+      ],
+      "seat_history_list": [
+        13
+      ]
+    },
+    {
+      "id": 9,
+      "name": "速水駿",
+      "is_lefty": false,
+      "forward_prio": 0,
+      "buddy_history_list": [
+        8,
+        2
+      ],
+      "seat_history_list": [
+        4
+      ]
+    },
+    {
+      "id": 10,
+      "name": "舞鶴翔",
+      "is_lefty": false,
+      "forward_prio": 0,
+      "buddy_history_list": [
+        13,
+        4
+      ],
+      "seat_history_list": [
+        7
+      ]
+    },
+    {
+      "id": 11,
+      "name": "望月千華子",
+      "is_lefty": false,
+      "forward_prio": 0,
+      "buddy_history_list": [
+        12,
+        0
+      ],
+      "seat_history_list": [
+        11
+      ]
+    },
+    {
+      "id": 12,
+      "name": "山田樹",
+      "is_lefty": false,
+      "forward_prio": 0,
+      "buddy_history_list": [
+        11,
+        1
+      ],
+      "seat_history_list": [
+        1
+      ]
+    },
+    {
+      "id": 13,
+      "name": "吉田力",
+      "is_lefty": false,
+      "forward_prio": 0,
+      "buddy_history_list": [
+        10,
+        6
+      ],
+      "seat_history_list": [
+        2
+      ]
+    }
+  ],
+  "seat_list": [
+    {
+      "index": 0,
+      "table_number": 0,
+      "lefty_flag": true,
+      "forward_flag": true
+    },
+    {
+      "index": 1,
+      "table_number": 0,
+      "lefty_flag": false,
+      "forward_flag": true
+    },
+    {
+      "index": 2,
+      "table_number": 0,
+      "lefty_flag": false,
+      "forward_flag": true
+    },
+    {
+      "index": 3,
+      "table_number": 0,
+      "lefty_flag": true,
+      "forward_flag": true
+    },
+    {
+      "index": 4,
+      "table_number": 1,
+      "lefty_flag": true,
+      "forward_flag": true
+    },
+    {
+      "index": 5,
+      "table_number": 1,
+      "lefty_flag": false,
+      "forward_flag": true
+    },
+    {
+      "index": 6,
+      "table_number": 1,
+      "lefty_flag": false,
+      "forward_flag": true
+    },
+    {
+      "index": 7,
+      "table_number": 1,
+      "lefty_flag": true,
+      "forward_flag": true
+    },
+    {
+      "index": 8,
+      "table_number": 2,
+      "lefty_flag": true,
+      "forward_flag": false
+    },
+    {
+      "index": 9,
+      "table_number": 2,
+      "lefty_flag": false,
+      "forward_flag": false
+    },
+    {
+      "index": 10,
+      "table_number": 2,
+      "lefty_flag": false,
+      "forward_flag": false
+    },
+    {
+      "index": 11,
+      "table_number": 2,
+      "lefty_flag": false,
+      "forward_flag": false
+    },
+    {
+      "index": 12,
+      "table_number": 2,
+      "lefty_flag": false,
+      "forward_flag": false
+    },
+    {
+      "index": 13,
+      "table_number": 2,
+      "lefty_flag": true,
+      "forward_flag": false
+    }
+  ],
+  "order_dict": {
+    "0": 1,
+    "1": 12,
+    "2": 13,
+    "3": 6,
+    "4": 9,
+    "5": 2,
+    "6": 4,
+    "7": 10,
+    "8": 5,
+    "9": 3,
+    "10": 0,
+    "11": 11,
+    "12": 7,
+    "13": 8
+  }
+}
